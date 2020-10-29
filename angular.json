@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "merlin-dashboard"
+    }
+  },
+  "defaultProject": "merlin-dashboard",
+  "cli": {
+    "analytics": "aa3fd1a8-2f5c-47f0-ab26-259f878fe88c"
+  }
 }
