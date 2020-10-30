@@ -1,0 +1,39 @@
+.wrapper {
+    height: 100%;
+}
+
+.toolbar {
+    color: #95aac9;
+}
+
+.logo {
+    margin-right: 1em;
+}
+
+mat-toolbar {
+    padding: 1em;
+    height: auto;
+}
+
+.container {
+    height: 100%;
+}
+
+.navigation {
+    color: #95aac9;
+    padding: 1.5em;
+}
+
+.content {
+    padding: 1.5em;
+}
+
+mat-drawer-container {
+}
+
+mat-drawer {
+    width: 250px;
+}
+
+mat-drawer-content {
+}

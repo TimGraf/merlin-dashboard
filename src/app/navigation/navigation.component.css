@@ -1,0 +1,17 @@
+a {
+    display: block;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
+
+.nav-link-label {
+    color: #95aac9;
+    display: inline;
+    text-decoration: none;
+    vertical-align: super;
+    margin-left: 1em;
+}
+
+mat-icon {
+    color: #95aac9;
+}
