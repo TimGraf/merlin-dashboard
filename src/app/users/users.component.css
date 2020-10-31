@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+}
+
+img {
+    border-radius: 50%;
+    width: 5em;
+    margin: 0.5em;
+}

@@ -1,3 +1,4 @@
+import Axios from  'axios-observable';
 import { Observable } from 'rxjs';
 
 export interface Job {
@@ -14,6 +15,12 @@ export interface JobResponse {
 }
 
 export class JobsApi {
+    client: Axios | null;
+
+    constructor(client: Axios) {
+        this.client = client;
+    }
+
     getJobs(sort: string): Observable<JobResponse> {
         // TODO replace with real API call
         console.log(`getJobs sort: ${sort}`);

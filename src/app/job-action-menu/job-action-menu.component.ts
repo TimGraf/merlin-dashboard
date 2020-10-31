@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { JobsApi } from '../../api/jobs';
+import { Api } from '../../api/api';
 
 @Component({
   selector: 'app-job-action-menu',
@@ -10,10 +10,10 @@ export class JobActionMenuComponent implements OnInit {
 
   @Input('jobid')
   jobId: number = 0;
-  jobsApi: JobsApi | null;
+  api: Api | null;
 
   constructor() { 
-    this.jobsApi = new JobsApi();
+    this.api = new Api();
   }
 
   ngOnInit(): void {
@@ -21,14 +21,14 @@ export class JobActionMenuComponent implements OnInit {
   }
 
   pauseJob(): void {
-    this.jobsApi.pauseJob(this.jobId);
+    this.api!.jobs.pauseJob(this.jobId);
   }
 
   runJob(): void {
-    this.jobsApi.runJob(this.jobId);
+    this.api!.jobs.runJob(this.jobId);
   }
 
   editJob(): void {
-    this.jobsApi.editJob(this.jobId);
+    this.api!.jobs.editJob(this.jobId);
   }
 }

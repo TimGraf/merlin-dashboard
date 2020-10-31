@@ -19,6 +19,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { JobActionMenuComponent } from './job-action-menu/job-action-menu.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { JobActionMenuComponent } from './job-action-menu/job-action-menu.compon
     JobsComponent,
     DashboardComponent,
     NotificationsComponent,
-    JobActionMenuComponent
+    JobActionMenuComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
