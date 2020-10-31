@@ -31,9 +31,9 @@ export class UsersComponent implements AfterViewInit {
 
   getUsers() {
     this.api!.users.getUsers(this.paginator.pageIndex + 1, this.itemsPerPage).subscribe(data => {
+      this.itemsPerPage = data.data.per_page;
+      this.resultsLength = data.data.total;
       this.data = data.data.data.map(user => {
-        this.itemsPerPage = data.data.per_page;
-        this.resultsLength = data.data.total;
         return {
           ...user,
           name: `${user.first_name} ${user.last_name}`
