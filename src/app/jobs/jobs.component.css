@@ -1,0 +1,45 @@
+mat-card-header {
+    border-bottom: 1px solid #e3ebf6;
+    margin-bottom: 1em;
+}
+
+mat-icon {
+    margin-right: 0.5em;
+}
+
+table {
+    width: 100%;
+}
+
+button {
+    margin-bottom: 1em;
+}
+
+.job-status {
+    vertical-align: super;
+}
+
+.job-status-cell {
+    color: green;
+}
+
+.job-status-cell.orange {
+    color: orange;
+}
+
+.spacer {
+    flex: auto;
+}
+
+.cell-align-right {
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.job-actions-cell {
+    color: #d2ddec;
+}
+
+.job-actions-cell:hover {
+    color: #1657af;
+}

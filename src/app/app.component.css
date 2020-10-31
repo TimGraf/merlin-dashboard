@@ -1,3 +1,12 @@
+mat-toolbar {
+    padding: 1em;
+    height: auto;
+}
+
+mat-drawer {
+    width: 250px;
+}
+
 .wrapper {
     height: 100%;
 }
@@ -7,16 +16,12 @@
 }
 
 .logo {
-    margin-right: 1em;
-}
-
-mat-toolbar {
-    padding: 1em;
-    height: auto;
+    margin-right: 2em;
+    width: 200px;
 }
 
 .container {
-    height: 100%;
+    height: calc(100% - 91px);;
 }
 
 .navigation {
@@ -26,14 +31,4 @@ mat-toolbar {
 
 .content {
     padding: 1.5em;
-}
-
-mat-drawer-container {
-}
-
-mat-drawer {
-    width: 250px;
-}
-
-mat-drawer-content {
 }

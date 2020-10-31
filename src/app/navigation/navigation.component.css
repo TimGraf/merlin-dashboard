@@ -4,6 +4,22 @@ a {
     margin-bottom: 1em;
 }
 
+a:hover .nav-link-label {
+    color: #12263f;
+}
+
+a:hover mat-icon {
+    color: #12263f;
+}
+
+a.active .nav-link-label {
+    color: #12263f;
+}
+
+a.active mat-icon {
+    color: #12263f;
+}
+
 .nav-link-label {
     color: #95aac9;
     display: inline;
