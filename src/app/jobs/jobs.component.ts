@@ -1,8 +1,8 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Job, JobResponse, JobsApi } from '../../api/jobs';
-import { merge, Observable, of as observableOf } from 'rxjs';
+import { Job, JobsApi } from '../../api/jobs';
+import { merge, of as observableOf } from 'rxjs';
 import { catchError, map, startWith, switchMap } from 'rxjs/operators';
 
 @Component({
@@ -22,11 +22,11 @@ export class JobsComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() { }
+  constructor() { 
+    this.jobsApi = new JobsApi();
+  }
 
   ngAfterViewInit() {
-    this.jobsApi = new JobsApi();
-
     this.sort!.sortChange.subscribe(() => this.paginator.pageIndex = 0);
 
     merge(this.sort.sortChange, this.paginator.page)
@@ -47,5 +47,9 @@ export class JobsComponent implements AfterViewInit {
           return observableOf([]);
         })
       ).subscribe(data => this.data = data);
+  }
+
+  createJob() {
+    this.jobsApi.createJob();
   }
 }

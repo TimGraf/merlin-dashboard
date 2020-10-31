@@ -15,7 +15,10 @@ export interface JobResponse {
 
 export class JobsApi {
     getJobs(sort: string): Observable<JobResponse> {
-        let results = Observable.create(observer => {
+        // TODO replace with real API call
+        console.log(`getJobs sort: ${sort}`);
+
+        let results = new Observable<JobResponse>(observer => {
             setTimeout(() => {
                 let response: JobResponse = {
                     jobs: [
@@ -51,6 +54,66 @@ export class JobsApi {
                     total_count: 4
                 }
           
+                observer.next(response);
+                observer.complete();
+            }, 1000);
+        });
+
+        return results;
+    }
+
+    createJob(): Observable<boolean> {
+        // TODO replace with real API call
+        console.log('createJob');
+
+        let results = new Observable<boolean>(observer => {
+            setTimeout(() => {
+                let response: boolean = true;
+                observer.next(response);
+                observer.complete();
+            }, 1000);
+        })
+
+        return results;
+    }
+
+    runJob(jobId: number): Observable<boolean> {
+        // TODO replace with real API call
+        console.log(`runJob ID: ${jobId}`);
+
+        let results = new Observable<boolean>(observer => {
+            setTimeout(() => {
+                let response: boolean = true;
+                observer.next(response);
+                observer.complete();
+            }, 1000);
+        })
+
+        return results;
+    }
+
+    pauseJob(jobId: number): Observable<boolean> {
+        // TODO replace with real API call
+        console.log(`pauseJob ID: ${jobId}`);
+
+        let results = new Observable<boolean>(observer => {
+            setTimeout(() => {
+                let response: boolean = true;
+                observer.next(response);
+                observer.complete();
+            }, 1000);
+        })
+
+        return results;
+    }
+
+    editJob(jobId: number): Observable<boolean> {
+        // TODO replace with real API call
+        console.log(`editJob ID: ${jobId}`);
+
+        let results = new Observable<boolean>(observer => {
+            setTimeout(() => {
+                let response: boolean = true;
                 observer.next(response);
                 observer.complete();
             }, 1000);
