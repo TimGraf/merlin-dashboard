@@ -1,7 +1,8 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
+import { AxiosResponse } from 'axios';
 import { Api } from '../../api/api';
-import { User } from '../../api/users';
+import { User, UserResponse } from '../../api/users';
 
 @Component({
   selector: 'app-users',
@@ -30,15 +31,16 @@ export class UsersComponent implements AfterViewInit {
   }
 
   getUsers() {
-    this.api!.users.getUsers(this.paginator.pageIndex + 1, this.itemsPerPage).subscribe(data => {
-      this.itemsPerPage = data.data.per_page;
-      this.resultsLength = data.data.total;
-      this.data = data.data.data.map(user => {
-        return {
-          ...user,
-          name: `${user.first_name} ${user.last_name}`
-        };
+    this.api!.users.getUsers(this.paginator.pageIndex + 1, this.itemsPerPage)
+      .subscribe((data: AxiosResponse<UserResponse>) => {
+        this.itemsPerPage = data.data.per_page;
+        this.resultsLength = data.data.total;
+        this.data = data.data.data.map(user => {
+          return {
+            ...user,
+            name: `${user.first_name} ${user.last_name}`
+          };
+        });
       });
-    });
   }
 }
