@@ -1,9 +1,27 @@
+mat-card-header {
+    border-bottom: 1px solid #e3ebf6;
+    margin-bottom: 1em;
+}
+
+mat-icon {
+    margin-right: 0.5em;
+}
+
 table {
     width: 100%;
+    margin-top: 3em;
+}
+
+button {
+    margin-bottom: 1em;
 }
 
 img {
     border-radius: 50%;
-    width: 5em;
+    width: 3em;
     margin: 0.5em;
+}
+
+.spacer {
+    flex: auto;
 }

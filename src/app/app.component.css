@@ -15,9 +15,8 @@ mat-drawer {
     color: #95aac9;
 }
 
-.logo {
-    margin-right: 2em;
-    width: 200px;
+.header {
+    width: 100%;
 }
 
 .container {

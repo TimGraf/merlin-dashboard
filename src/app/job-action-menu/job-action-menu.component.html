@@ -1,14 +1,14 @@
 <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
-    <mat-icon>more_vert</mat-icon>
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="runJob()">
+    <span>Run Now</span>
   </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="runJob()">
-      <span>Run Now</span>
-    </button>
-    <button mat-menu-item (click)="pauseJob()">
-      <span>Pause Job</span>
-    </button>
-    <button mat-menu-item (click)="editJob()">
-      <span>Edit Profile</span>
-    </button>
-  </mat-menu>
+  <button mat-menu-item (click)="pauseJob()">
+    <span>Pause Job</span>
+  </button>
+  <button mat-menu-item (click)="editJob()">
+    <span>Edit Profile</span>
+  </button>
+</mat-menu>

@@ -8,7 +8,8 @@ export class Api {
 
     constructor() {
         // TODO additional HTTP client configuration may be needed here
-        const client = Axios.create({});
+        const config = {};
+        const client = Axios.create(config);
 
         this.jobs = new JobsApi(client);
         this.users = new UsersApi(client);

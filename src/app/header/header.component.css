@@ -1,0 +1,22 @@
+.logo {
+    margin-right: 2em;
+    width: 200px;
+}
+
+.title {
+    display: inline-block;
+}
+
+.spacer {
+    display: inline-block;
+}
+
+.user-icon {
+    float: right;
+    margin-right: 2em;
+    padding-top: 1em;
+}
+
+.user-icon mat-icon {
+    font-size: 4em;
+}

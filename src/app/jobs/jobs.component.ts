@@ -40,7 +40,6 @@ export class JobsComponent implements AfterViewInit {
         map(response => {
           this.isLoadingResults = false;
           this.resultsLength = response.total_count;
-
           return response.jobs;
         }),
         catchError(() => {

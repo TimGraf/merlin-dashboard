@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { JobActionMenuComponent } from './job-action-menu/job-action-menu.component';
 import { UsersComponent } from './users/users.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { UsersComponent } from './users/users.component';
     DashboardComponent,
     NotificationsComponent,
     JobActionMenuComponent,
-    UsersComponent
+    UsersComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { UsersComponent } from './users/users.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
