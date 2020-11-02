@@ -12,6 +12,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 
+import { AuthService } from '../services/auth.service';
+import { UsersService } from '../services/users.service';
+import { JobsService } from '../services/jobs.service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
@@ -22,6 +26,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { JobActionMenuComponent } from './job-action-menu/job-action-menu.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,8 @@ import { HeaderComponent } from './header/header.component';
     NotificationsComponent,
     JobActionMenuComponent,
     UsersComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,11 @@ import { HeaderComponent } from './header/header.component';
     MatMenuModule,
     MatDividerModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    UsersService,
+    JobsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -63,7 +63,7 @@ export class JobsApi {
           
                 observer.next(response);
                 observer.complete();
-            }, 1000);
+            }, 500);
         });
 
         return results;
@@ -78,7 +78,7 @@ export class JobsApi {
                 let response: boolean = true;
                 observer.next(response);
                 observer.complete();
-            }, 1000);
+            }, 500);
         })
 
         return results;
@@ -93,7 +93,7 @@ export class JobsApi {
                 let response: boolean = true;
                 observer.next(response);
                 observer.complete();
-            }, 1000);
+            }, 500);
         })
 
         return results;
@@ -108,7 +108,7 @@ export class JobsApi {
                 let response: boolean = true;
                 observer.next(response);
                 observer.complete();
-            }, 1000);
+            }, 500);
         })
 
         return results;
@@ -123,7 +123,7 @@ export class JobsApi {
                 let response: boolean = true;
                 observer.next(response);
                 observer.complete();
-            }, 1000);
+            }, 500);
         })
 
         return results;

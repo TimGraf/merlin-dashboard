@@ -1,19 +1,17 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import { AxiosResponse } from 'axios';
-import { Api } from '../../api/api';
-import { User, UserResponse } from '../../api/users';
+import { MatPaginator } from '@angular/material/paginator';
+import { UsersService, ServiceUser, UserServiceResponse } from '../../services/users.service';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: ['./users.component.css'],
+  providers:  [ UsersService ]
 })
 export class UsersComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['avatar', 'name', 'email'];
-  api: Api | null;
-  data: User[] = [];
+  data: ServiceUser[] = [];
 
   itemsPerPage: number = 5;
   resultsLength: number = 0;
@@ -21,8 +19,8 @@ export class UsersComponent implements AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { 
-    this.api = new Api();
+  constructor(private usersService: UsersService) { 
+    this.usersService = usersService;
   }
 
   ngAfterViewInit() {
@@ -31,20 +29,15 @@ export class UsersComponent implements AfterViewInit {
   }
 
   getUsers() {
-    this.api!.users.getUsers(this.paginator.pageIndex + 1, this.itemsPerPage)
-      .subscribe((response: AxiosResponse<UserResponse>) => {
-        this.itemsPerPage = response.data.per_page;
-        this.resultsLength = response.data.total;
-        this.data = response.data.data.map(user => {
-          return {
-            ...user,
-            name: `${user.first_name} ${user.last_name}`
-          };
-        });
+    this.usersService.getUsers(this.paginator.pageIndex + 1, this.itemsPerPage)
+      .subscribe((response: UserServiceResponse) => {
+        this.itemsPerPage = response.itemsPerPage;
+        this.resultsLength = response.resultsLength;
+        this.data = response.users;
       });
   }
 
   createUser() {
-    this.api!.users.createUser();
+    this.usersService.createUser();
   }
 }

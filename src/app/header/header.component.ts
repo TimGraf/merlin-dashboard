@@ -1,26 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { Api } from '../../api/api'
+import { UsersService } from '../../services/users.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  providers:  [ UsersService, AuthService ]
 })
 export class HeaderComponent implements OnInit {
-  api: Api | null;
 
-  constructor() { 
-    this.api = new Api();
+  constructor(private usersService: UsersService, private authService: AuthService) { 
+    this.usersService = usersService;
+    this.authService = authService;
   }
 
   ngOnInit(): void {
   }
 
   editUser() {
-    this.api!.users.editUser();
+    this.usersService.editUser();
   }
 
   logOutUser() {
-    this.api!.users.logOutUser();
+    this.authService.logOut();
   }
 }
