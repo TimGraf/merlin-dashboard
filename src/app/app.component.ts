@@ -16,7 +16,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.authService.isAuthenticated().subscribe((val: boolean) => {
+    this.authService.isAuthenticated().then((val: boolean) => {
       this.isAuthenticated = val;
       console.log(`Is Authenticated: ${this.isAuthenticated}`);
     });

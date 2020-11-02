@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     this.usersService.editUser();
   }
 
-  logOutUser() {
-    this.authService.logOut();
+  async logOutUser() {
+    await this.authService.logout();
   }
 }

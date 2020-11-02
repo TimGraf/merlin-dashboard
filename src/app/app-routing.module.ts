@@ -5,13 +5,14 @@ import { JobsComponent } from './jobs/jobs.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './login/login.component';
+import { AppGuard } from './app.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'jobs', component: JobsComponent },
-  { path: 'notifications', component: NotificationsComponent },
-  { path: 'users', component: UsersComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AppGuard] },
+  { path: 'jobs', component: JobsComponent, canActivate: [AppGuard] },
+  { path: 'notifications', component: NotificationsComponent, canActivate: [AppGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AppGuard] },
 ];
 
 @NgModule({

@@ -2,14 +2,11 @@ import { Injectable } from '@angular/core';
 import { AxiosResponse } from 'axios';
 import { Observable } from 'rxjs';
 import { Api } from '../api/api';
-import { UserResponse } from '../api/users';
+import { UserResponse, User } from '../api/users';
 
-export interface ServiceUser {
-  avatar: string;
+// Services provide an abstraction over the API calls and types
+export interface ServiceUser extends User {
   name: string;
-  first_name: string;
-  last_name: string;
-  email: string;
 }
 
 export interface UserServiceResponse {
@@ -61,6 +58,7 @@ export class UsersService {
   }
 
   editUser(): Observable<boolean> {
+    console.log('UsersService.editUser');
     return this.api.users.editUser();
   }
 }
