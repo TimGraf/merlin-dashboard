@@ -7,12 +7,12 @@ export class AppGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const authenticated = await this.authService.isAuthenticated();
-    if (authenticated) { return true; }
-
-    // Redirect to login flow.
-    //this.authService.login(state.url);
-    this.router.navigate(['/login']);
-    return false;
+    return this.authService.isAuthenticated()
+        .then(val => {
+            if (!val) {
+                this.router.navigate(['/login']);
+            }
+            return val;
+        });
   }
 }

@@ -1,7 +1,7 @@
 import { JobsApi } from './jobs';
 import { UsersApi } from './users';
 import { AuthApi } from './auth';
-import Axios from  'axios-observable';
+import axios, { AxiosInstance } from 'axios';
 
 export class Api {
     jobs: JobsApi | null;
@@ -11,7 +11,7 @@ export class Api {
     constructor() {
         // TODO additional HTTP client configuration may be needed here
         const config = {};
-        const client = Axios.create(config);
+        const client = axios.create(config);
 
         this.auth = new AuthApi(client);
         this.jobs = new JobsApi(client);

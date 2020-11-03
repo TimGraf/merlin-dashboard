@@ -18,27 +18,22 @@ export class JobsService {
   }
 
   getJobs(sort: string): Observable<JobsServiceResponse> {
-    console.log('JobsService.getJobs');
     return this.api.jobs.getJobs(sort);
   }
 
   createJob(): Observable<boolean> {
-    console.log('JobsService.createJob');
     return this.api.jobs.createJob();
   }
 
   runJob(jobId: number): Observable<boolean> {
-    console.log('JobsService.runJob');
     return this.api.jobs.runJob(jobId);
   }
 
   pauseJob(jobId: number): Observable<boolean> {
-    console.log('JobsService.pauseJob');
     return this.api.jobs.pauseJob(jobId);
   }
 
   editJob(jobId: number): Observable<boolean> {
-    console.log('JobsService.editJob');
     return this.api.jobs.editJob(jobId);
   }
 }

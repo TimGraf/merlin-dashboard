@@ -1,0 +1,51 @@
+mat-card-header {
+    border-bottom: 1px solid #e3ebf6;
+    margin-bottom: 1em;
+}
+
+mat-icon {
+    color: #95aac9;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+button {
+    margin-left: 18.5em;
+}
+
+form {
+    margin-top: 4em;
+    margin-bottom: 4em;
+}
+
+label {
+    color: #95aac9;
+    margin-right: 0.5em;
+    vertical-align: text-top;
+}
+
+input {
+    height: 1.5em;
+    width: 20em;
+    border: 1px solid #95aac9;
+    vertical-align: text-top;
+}
+
+a {
+    text-decoration: none;
+    margin-right: 1em;
+    margin-left: 1em;
+    font-size: smaller;
+}
+
+.form-group {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+}
+
+.form-actions {
+    border-top: 1px solid #e3ebf6;
+    margin-top: 1em;
+    padding-top: 1em;
+}

@@ -11,6 +11,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from '../services/auth.service';
 import { UsersService } from '../services/users.service';
@@ -27,6 +29,8 @@ import { JobActionMenuComponent } from './job-action-menu/job-action-menu.compon
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import { LoginComponent } from './login/login.component';
     JobActionMenuComponent,
     UsersComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    PageNotFoundComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +59,10 @@ import { LoginComponent } from './login/login.component';
     MatPaginatorModule,
     MatSortModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     AuthService,

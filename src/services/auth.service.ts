@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Router } from "@angular/router";
 import { Api } from '../api/api';
 
 // See the following: 
@@ -13,12 +13,11 @@ import { Api } from '../api/api';
 export class AuthService {
   api: Api | null;
 
-  constructor() {
+  constructor(private router: Router) {
     this.api = new Api();
   }
 
   async isAuthenticated(): Promise<boolean> {
-    console.log('AuthService.isAuthenticated');
     return new Promise<boolean>((resolve, reject) => {
       return this.api.auth.isAuthenticated().subscribe(response => {
         resolve(response);
@@ -27,9 +26,15 @@ export class AuthService {
   }
 
   async logout() {
-    //await this.oktaAuth.signOut({
+    //await this.oktaAuth.logout({
     //  postLogoutRedirectUri: this.LOGOUT_REDIRECT_URI
     //});
+    return new Promise<boolean>((resolve, reject) => {
+      return this.api.auth.logOut().subscribe(response => {
+        this.router.navigate(['/login']);
+        resolve(response);
+      });
+    });
   }
 
   login(originalUrl) {
@@ -40,5 +45,11 @@ export class AuthService {
     //this.oktaAuth.token.getWithRedirect({
     //  scopes: ['openid', 'email', 'profile']
     //});
+    return new Promise<boolean>((resolve, reject) => {
+      return this.api.auth.logIn().subscribe(response => {
+        this.router.navigate(['/dashboard']);
+        resolve(response);
+      });
+    });
   }
 }

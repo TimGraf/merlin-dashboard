@@ -1,4 +1,4 @@
-import { Axios } from  'axios-observable';
+import { AxiosInstance } from 'axios';
 import { Observable, from } from 'rxjs';
 
 export interface User {
@@ -16,21 +16,30 @@ export interface UserResponse {
 
 export class UsersApi {
     // TODO this is just s sample API for working with Axios and observables
-    client: Axios | null;
+    client: AxiosInstance | null;
     apiRootUrl: string = "https://reqres.in";
 
-    constructor(client: Axios) {
+    constructor(client: AxiosInstance) {
         this.client = client;
     }
 
     getUsers(page: number, perPage: number) {
-        return this.client.get(`${this.apiRootUrl}/api/users?page=${page}&per_page${perPage}`);
+        return new Observable<any>(observer => {
+            this.client.get(`${this.apiRootUrl}/api/users?page=${page}&per_page${perPage}`)
+            .then(response => {
+                observer.next(response);
+            })
+            .catch(error => {
+                observer.error(error);
+            })
+            .finally(() => {
+                observer.complete();
+            });
+        })
     }
 
     createUser(): Observable<boolean> {
         // TODO replace with real API call
-        console.log('createUser');
-
         let results = new Observable<boolean>(observer => {
             setTimeout(() => {
                 let response: boolean = true;
@@ -44,8 +53,6 @@ export class UsersApi {
 
     editUser(): Observable<boolean> {
         // TODO replace with real API call
-        console.log('editUser');
-
         let results = new Observable<boolean>(observer => {
             setTimeout(() => {
                 let response: boolean = true;

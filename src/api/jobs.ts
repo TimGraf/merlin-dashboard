@@ -1,4 +1,4 @@
-import Axios from  'axios-observable';
+import { AxiosInstance } from 'axios';
 import { Observable } from 'rxjs';
 
 export interface Job {
@@ -15,16 +15,14 @@ export interface JobResponse {
 }
 
 export class JobsApi {
-    client: Axios | null;
+    client: AxiosInstance | null;
 
-    constructor(client: Axios) {
+    constructor(client: AxiosInstance) {
         this.client = client;
     }
 
     getJobs(sort: string): Observable<JobResponse> {
         // TODO replace with real API call
-        console.log(`getJobs sort: ${sort}`);
-
         let results = new Observable<JobResponse>(observer => {
             setTimeout(() => {
                 let response: JobResponse = {
@@ -71,8 +69,6 @@ export class JobsApi {
 
     createJob(): Observable<boolean> {
         // TODO replace with real API call
-        console.log('createJob');
-
         let results = new Observable<boolean>(observer => {
             setTimeout(() => {
                 let response: boolean = true;
@@ -86,8 +82,6 @@ export class JobsApi {
 
     runJob(jobId: number): Observable<boolean> {
         // TODO replace with real API call
-        console.log(`runJob ID: ${jobId}`);
-
         let results = new Observable<boolean>(observer => {
             setTimeout(() => {
                 let response: boolean = true;
@@ -101,8 +95,6 @@ export class JobsApi {
 
     pauseJob(jobId: number): Observable<boolean> {
         // TODO replace with real API call
-        console.log(`pauseJob ID: ${jobId}`);
-
         let results = new Observable<boolean>(observer => {
             setTimeout(() => {
                 let response: boolean = true;
@@ -116,8 +108,6 @@ export class JobsApi {
 
     editJob(jobId: number): Observable<boolean> {
         // TODO replace with real API call
-        console.log(`editJob ID: ${jobId}`);
-
         let results = new Observable<boolean>(observer => {
             setTimeout(() => {
                 let response: boolean = true;

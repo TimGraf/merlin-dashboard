@@ -17,7 +17,6 @@ export class JobActionMenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(`Job ID: ${this.jobId}`);
   }
 
   pauseJob(): void {
